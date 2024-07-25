@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="duynoanguyen"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-07-25 12:38:07 PM"/>
+        <attribute name="created" value="ZHV5bm9hbmd1eWVuO0RVWU5PQU5HVVlONzNFMTsyMDI0LTA3LTI1OzEwOjAwOjIwIEFNOzM2NjE="/>
+        <attribute name="edited" value="ZHV5bm9hbmd1eWVuO0RVWU5PQU5HVVlONzNFMTsyMDI0LTA3LTI1OzEyOjE3OjUxIFBNOzM7VGhpbmtib29rO0RFU0tUT1AtTTg0VDNWRTsyMDI0LTA3LTI0OzEwOjEwOjQwIFBNO1F1ZXN0aW9uIDEgLSBNb3N0IGZyZXF1ZW50IGVsZW1lbnQgYXJyYXkuZnByZzsxMTM4NQ=="/>
+        <attribute name="edited" value="ZHV5bm9hbmd1eWVuO0RVWU5PQU5HVVlONzNFMTsyMDI0LTA3LTI1OzEyOjM4OjA3IFBNOzEwOzM4NTA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <declare name="arr" type="Integer" array="True" size="n"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="n - 1" direction="inc" step="1">
+                <assign variable="arr[i]" expression="Random(10)"/>
+            </for>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <output expression="&quot;Random array: &quot; &amp;arr[i]" newline="True"/>
+            </for>
+            <call expression="mostFrequentElement(n, arr)"/>
+        </body>
+    </function>
+    <function name="mostFrequentElement" type="None" variable="">
+        <parameters>
+            <parameter name="n" type="Integer" array="False"/>
+            <parameter name="arr" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="mostFrequent" type="Integer" array="False" size=""/>
+            <declare name="count" type="Integer" array="True" size="n"/>
+            <declare name="maxIndex" type="Integer" array="False" size=""/>
+            <assign variable="maxIndex" expression="0"/>
+            <declare name="temp" type="Integer" array="False" size=""/>
+            <assign variable="temp" expression="0"/>
+            <declare name="i, j" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <assign variable="count[i]" expression="1"/>
+            </for>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <for variable="j" start="0" end="n-1" direction="inc" step="1">
+                    <if expression="i != j &amp;&amp; arr[i] = arr[j]">
+                        <then>
+                            <assign variable="count[i]" expression="count[i] + 1"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+            </for>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <if expression="count[i] &gt; count[maxIndex]">
+                    <then>
+                        <assign variable="maxIndex" expression="i"/>
+                        <assign variable="temp" expression="temp + 1"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <assign variable="mostFrequent" expression="arr[maxIndex]"/>
+            <output expression="&quot;The element that appears most often is: &quot;&amp;mostFrequent" newline="True"/>
+            <output expression="&quot;With &quot; &amp;count[i-1] &amp;&quot; appearances&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
