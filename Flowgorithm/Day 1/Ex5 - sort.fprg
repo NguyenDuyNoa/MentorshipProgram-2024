@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="duynoanguyen"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-07-25 11:07:53 AM"/>
+        <attribute name="created" value="ZHV5bm9hbmd1eWVuO0RVWU5PQU5HVVlONzNFMTsyMDI0LTA3LTI1OzEwOjAwOjIwIEFNOzM2NjE="/>
+        <attribute name="edited" value="ZHV5bm9hbmd1eWVuO0RVWU5PQU5HVVlONzNFMTsyMDI0LTA3LTI1OzExOjA3OjUzIEFNOzU7Mzc4Nw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <declare name="arr" type="Integer" array="True" size="n"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="n - 1" direction="inc" step="1">
+                <assign variable="arr[i]" expression="Random(10)"/>
+            </for>
+            <declare name="temp" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <declare name="j" type="Integer" array="False" size=""/>
+                <for variable="j" start="0" end="n - i -2" direction="inc" step="1">
+                    <if expression="arr[j] &gt; arr[j + 1]">
+                        <then>
+                            <assign variable="temp" expression="arr[j]"/>
+                            <assign variable="arr[j]" expression="arr[j + 1]"/>
+                            <assign variable="arr[j + 1]" expression="temp"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+            </for>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <output expression="arr[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

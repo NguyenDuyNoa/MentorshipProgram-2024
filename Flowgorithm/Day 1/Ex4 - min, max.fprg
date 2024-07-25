@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="duynoanguyen"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-07-25 11:08:22 AM"/>
+        <attribute name="created" value="ZHV5bm9hbmd1eWVuO0RVWU5PQU5HVVlONzNFMTsyMDI0LTA3LTI1OzEwOjAwOjIwIEFNOzM2NjE="/>
+        <attribute name="edited" value="ZHV5bm9hbmd1eWVuO0RVWU5PQU5HVVlONzNFMTsyMDI0LTA3LTI1OzExOjA4OjIyIEFNOzU7Mzc4NA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <declare name="arr" type="Integer" array="True" size="n"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="n - 1" direction="inc" step="1">
+                <assign variable="arr[i]" expression="Random(10)"/>
+            </for>
+            <declare name="min" type="Integer" array="False" size=""/>
+            <assign variable="min" expression="arr[0]"/>
+            <declare name="max" type="Integer" array="False" size=""/>
+            <assign variable="max" expression="arr[0]"/>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <if expression="arr[i] &gt; max">
+                    <then>
+                        <assign variable="max" expression="arr[i]"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="arr[i] &lt; min">
+                    <then>
+                        <assign variable="min" expression="arr[i]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="min" newline="True"/>
+            <output expression="max" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
